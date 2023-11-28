@@ -9,6 +9,7 @@ export default function VideoCreator({ gradeList }) {
   const [url, setUrl] = useState("")
   const [description, setDescription] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
+  const [selectedDateTime, setSelectedDateTime] = useState(null)
 
   const showModal = () => {
     setName("")
@@ -31,6 +32,12 @@ export default function VideoCreator({ gradeList }) {
       setVisible(false)
     }
   }
+
+  const handleDateTimeChange = (date, dateString) => {
+    // Combine the selected date and time
+    const combinedDateTime = new Date(dateString + ' ' + date.format('HH:mm:ss'));
+    setSelectedDateTime(combinedDateTime);
+  };
 
   return (
     <div>
@@ -84,9 +91,11 @@ export default function VideoCreator({ gradeList }) {
               placeholder="Enter video description"
             />
           </Form.Item>
-          <Form.Item id="form-label" label="Release Date">
+          <Form.Item label="Release Date" name="dateAndTime">
             <DatePicker
-              onChange={(date, dateString) => { setReleaseDate(dateString) }}
+              showTime
+              format="YYYY-MM-DD HH:mm:ss"
+              onChange={handleDateTimeChange}
             />
           </Form.Item>
           <Form.Item
