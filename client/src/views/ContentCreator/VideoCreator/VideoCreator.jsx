@@ -2,6 +2,17 @@ import { Button, Form, Input, message, Modal, DatePicker } from "antd"
 import React, { useState } from "react"
 import { createVideo } from "../../../Utils/requests"
 import "./VideoCreator.less"
+import VideoPage from '../../Video/VideoPage'
+//import NavBar from "../../../components/NavBar/NavBar"
+
+function parseYouTubeVideoId(url) {
+  // Regular expression for extracting YouTube video ID
+  const regex = /[?&]v=([^#&?]+)/
+  const match = url.match(regex)
+
+  // Check if there's a match and return the video ID
+  return match && match[1] ? match[1] : null
+}
 
 export default function VideoCreator({ gradeList }) {
   const [visible, setVisible] = useState(false)
@@ -9,6 +20,8 @@ export default function VideoCreator({ gradeList }) {
   const [url, setUrl] = useState("")
   const [description, setDescription] = useState("")
   const [releaseDate, setReleaseDate] = useState("")
+  const [selectedDateTime, setSelectedDateTime] = useState(null)
+  const [isVideoLocked, setIsVideoLocked] = useState(true)
 
   const showModal = () => {
     setName("")
@@ -30,6 +43,32 @@ export default function VideoCreator({ gradeList }) {
       message.success("Successfully created video")
       setVisible(false)
     }
+  }
+
+  const handleDateTimeChange = (date, dateString) => {
+    // Combine the selected date and time
+    const combinedDateTime = new Date(dateString + ' ' + date.format('HH:mm'))
+    setSelectedDateTime(combinedDateTime)
+    // Check if the new date is in the future
+    const isFutureDate = date ? date > new Date() : true
+
+    // Update the video lock status based on the new date
+    setIsVideoLocked(!isFutureDate)
+  }
+  /*const handleToggleVideoLock = () => {
+    const currentDate = new Date();
+    if (selectedDateTime && selectedDateTime > currentDate) {
+      setIsVideoLocked(true);
+    } else {
+      setIsVideoLocked(!isVideoLocked);
+    }
+  }*/
+  //const isVidLocked = selectedDateTime ? selectedDateTime > new Date() : true;
+
+
+  const openVideoPageInNewTab = () => {
+    const videoPageUrl = `${window.location.origin}/video-page`; // Adjust the URL as needed
+    window.open(videoPageUrl, '_blank');
   }
 
   return (
@@ -84,11 +123,26 @@ export default function VideoCreator({ gradeList }) {
               placeholder="Enter video description"
             />
           </Form.Item>
-          <Form.Item id="form-label" label="Release Date">
+          <Form.Item label="Release Date" name="dateAndTime">
             <DatePicker
-              onChange={(date, dateString) => { setReleaseDate(dateString) }}
+              showTime
+              format="YYYY-MM-DD HH:mm"
+              onChange={handleDateTimeChange}
             />
           </Form.Item>
+          <Button type="primary" onClick={openVideoPageInNewTab} disabled={isVideoLocked}>
+            {isVideoLocked ? 'Video Locked' : 'Watch Video'}
+          </Button>
+
+          {isVideoLocked ? (
+        <p>Video will be unlocked after the specified date and time.</p>
+          ) : (
+        <div>
+          <p>Video is now unlocked and can be viewed.</p>
+          {/* Render the VideoPage component */}
+          <VideoPage thisID={parseYouTubeVideoId(url)} thisTitle={name} />
+        </div>
+          )}
           <Form.Item
             wrapperCol={{
               offset: 8,
