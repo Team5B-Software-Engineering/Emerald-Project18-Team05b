@@ -3,7 +3,6 @@ import React, { useState } from "react"
 import { createVideo } from "../../../Utils/requests"
 import "./VideoCreator.less"
 import VideoPage from '../../Video/VideoPage'
-//import NavBar from "../../../components/NavBar/NavBar"
 
 function parseYouTubeVideoId(url) {
   // Regular expression for extracting YouTube video ID
@@ -55,19 +54,9 @@ export default function VideoCreator({ gradeList }) {
     // Update the video lock status based on the new date
     setIsVideoLocked(!isFutureDate)
   }
-  /*const handleToggleVideoLock = () => {
-    const currentDate = new Date();
-    if (selectedDateTime && selectedDateTime > currentDate) {
-      setIsVideoLocked(true);
-    } else {
-      setIsVideoLocked(!isVideoLocked);
-    }
-  }*/
-  //const isVidLocked = selectedDateTime ? selectedDateTime > new Date() : true;
-
 
   const openVideoPageInNewTab = () => {
-    const videoPageUrl = `${window.location.origin}/video-page`; // Adjust the URL as needed
+    const videoPageUrl = `${window.location.origin}/video-page`; 
     window.open(videoPageUrl, '_blank');
   }
 
