@@ -541,9 +541,6 @@
           "LessonVideoDescription": {
             "type": "string"
           },
-          "LessonVideoLink": {
-            "type": "string"
-          },
           "interactive_qs": {
             "type": "array",
             "items": {
@@ -560,9 +557,6 @@
                 "CorrectAnswer": {
                   "type": "string"
                 },
-                "Time": {
-                  "type": "string"
-                },
                 "Answer1": {
                   "type": "string"
                 },
@@ -573,6 +567,12 @@
                   "type": "string"
                 },
                 "Answer4": {
+                  "type": "string"
+                },
+                "Time": {
+                  "type": "string"
+                },
+                "VideoId": {
                   "type": "string"
                 },
                 "published_at": {
@@ -635,6 +635,13 @@
               }
             }
           },
+          "VideoLink": {
+            "type": "string"
+          },
+          "ReleaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -649,9 +656,6 @@
           "LessonVideoDescription": {
             "type": "string"
           },
-          "LessonVideoLink": {
-            "type": "string"
-          },
           "interactive_qs": {
             "type": "array",
             "items": {
@@ -660,6 +664,13 @@
           },
           "lesson_module": {
             "type": "string"
+          },
+          "VideoLink": {
+            "type": "string"
+          },
+          "ReleaseDate": {
+            "type": "string",
+            "format": "date-time"
           },
           "published_at": {
             "type": "string",

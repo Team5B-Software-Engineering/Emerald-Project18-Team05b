@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/27/2023 7:53:23 PM"
+    "x-generation-date": "11/30/2023 10:02:05 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -13632,9 +13632,6 @@
           "CorrectAnswer": {
             "type": "string"
           },
-          "Time": {
-            "type": "string"
-          },
           "Answer1": {
             "type": "string"
           },
@@ -13645,6 +13642,12 @@
             "type": "string"
           },
           "Answer4": {
+            "type": "string"
+          },
+          "Time": {
+            "type": "string"
+          },
+          "VideoId": {
             "type": "string"
           },
           "published_at": {
@@ -13661,9 +13664,6 @@
           "CorrectAnswer": {
             "type": "string"
           },
-          "Time": {
-            "type": "string"
-          },
           "Answer1": {
             "type": "string"
           },
@@ -13674,6 +13674,12 @@
             "type": "string"
           },
           "Answer4": {
+            "type": "string"
+          },
+          "Time": {
+            "type": "string"
+          },
+          "VideoId": {
             "type": "string"
           },
           "published_at": {
@@ -14027,9 +14033,6 @@
                 "LessonVideoDescription": {
                   "type": "string"
                 },
-                "LessonVideoLink": {
-                  "type": "string"
-                },
                 "interactive_qs": {
                   "type": "array",
                   "items": {
@@ -14037,6 +14040,12 @@
                   }
                 },
                 "lesson_module": {
+                  "type": "string"
+                },
+                "VideoLink": {
+                  "type": "string"
+                },
+                "ReleaseDate": {
                   "type": "string"
                 },
                 "published_at": {
@@ -14111,9 +14120,6 @@
           "LessonVideoDescription": {
             "type": "string"
           },
-          "LessonVideoLink": {
-            "type": "string"
-          },
           "interactive_qs": {
             "type": "array",
             "items": {
@@ -14130,9 +14136,6 @@
                 "CorrectAnswer": {
                   "type": "string"
                 },
-                "Time": {
-                  "type": "string"
-                },
                 "Answer1": {
                   "type": "string"
                 },
@@ -14143,6 +14146,12 @@
                   "type": "string"
                 },
                 "Answer4": {
+                  "type": "string"
+                },
+                "Time": {
+                  "type": "string"
+                },
+                "VideoId": {
                   "type": "string"
                 },
                 "published_at": {
@@ -14205,6 +14214,13 @@
               }
             }
           },
+          "VideoLink": {
+            "type": "string"
+          },
+          "ReleaseDate": {
+            "type": "string",
+            "format": "date-time"
+          },
           "published_at": {
             "type": "string",
             "format": "date-time"
@@ -14219,9 +14235,6 @@
           "LessonVideoDescription": {
             "type": "string"
           },
-          "LessonVideoLink": {
-            "type": "string"
-          },
           "interactive_qs": {
             "type": "array",
             "items": {
@@ -14230,6 +14243,13 @@
           },
           "lesson_module": {
             "type": "string"
+          },
+          "VideoLink": {
+            "type": "string"
+          },
+          "ReleaseDate": {
+            "type": "string",
+            "format": "date-time"
           },
           "published_at": {
             "type": "string",
