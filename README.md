@@ -1,8 +1,12 @@
 ### Project Features
 * `Add Video Button` - Implements functionality for adding/uploading a video to CASMM.
+![add video screenshot](https://raw.githubusercontent.com/Team5B-Software-Engineering/Emerald-Project18-Team05b/develop/images/uploadvideo.png)
 * `Edit Video Page` - Implements functionality for adding questions to videos uploaded to CASMM.
+![edit video screenshot](https://raw.githubusercontent.com/Team5B-Software-Engineering/Emerald-Project18-Team05b/develop/images/editq.png)
 * `Video Display Page` - Implements funtionality for viewing videos uploaded to CASMM.
+![video display screenshot](https://raw.githubusercontent.com/Team5B-Software-Engineering/Emerald-Project18-Team05b/develop/images/videopage.png)
 * `Interactive Questions` - Implments functionality for viewing/answering questions embedded in videos.
+![interactive questions screenshot](https://raw.githubusercontent.com/Team5B-Software-Engineering/Emerald-Project18-Team05b/develop/images/editqform.png)
 
 ### Outstanding Work
 * Connect video questions front end to back end
